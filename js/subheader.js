@@ -17,10 +17,8 @@ $('.subheader').append(`
     ${backArrow} <h2  class='page-subtitle' hc >New Estimation</h2>
   </div>
   <div class='steps' hcs>
-    <h3 class='completed' alt ><span hc fade>1</span> Plan Selection</h3>
-    <h3 class='active'    alt ><span hc fade>2</span> Company Details</h3>
-    <h3 alt><span hc fade>3</span> Payment Method</h3>
-    <h3 alt><span hc fade>4</span> Review</h3>
+    <h3 class='active' alt ><span hc fade>1</span> New Estimation</h3>
+    <h3 alt ><span hc fade>2</span>Edit & Review</h3>
   </div>
   <div class='spacer'>&nbsp;</div>
 `);

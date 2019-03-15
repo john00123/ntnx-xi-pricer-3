@@ -420,7 +420,7 @@ td::after {
   background: #F8F9FA;
 }
 
-td:not(:first-child):hover::after {
+tr:last-child:hover::after {
   opacity: 1;
 }
 

@@ -63,4 +63,4 @@ td::after{
   background: $semi-white;
 }
 
-td:not(:first-child):hover::after { opacity: 1}
+tr:last-child:hover::after { opacity: 1}
