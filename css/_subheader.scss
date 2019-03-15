@@ -1,0 +1,54 @@
+//main:style.scss
+
+.subheader{
+  @include size(60px, 100%);
+  @include flex(center, space-between, row);
+  background: $white;
+  padding   : 0 20px;
+
+}
+
+.subheader{
+  top : 60px;
+  left: 0;
+  position: fixed;
+  transform: translate3d(0px, -120px, 0px);
+  @include transition(transform);
+  will-change: transform;
+  z-index: 5;
+}
+
+.page-subtitle{
+  // border-left: 1px solid $border-color-2;
+  border-right: 1px solid $border-color-2;
+  height: 16px;
+  padding: 0 20px;
+  margin-right: 20px;
+}
+
+.main-back{
+  // padding-right: 20px;
+}
+
+.slideDown{
+  transform: translate3d(0px,0px,0px);
+  opacity: 1;
+  border-bottom: 1px solid $background-color-3;
+}
+
+.back-section{
+  @include transition(color);
+  transition-duration: 200ms;
+
+  svg{
+    @include transition(transform);
+    transition-duration: 400ms;
+    will-change: transform;
+  }
+
+  &:hover{
+    color : $blue-1;
+    cursor: pointer;
+    svg{ transform:translate3d(2px, 0px, 0px)}
+  }
+}
