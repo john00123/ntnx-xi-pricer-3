@@ -332,6 +332,7 @@ header {
   height: 16px;
   padding: 0 20px;
   margin-right: 20px;
+  width: 130px;
 }
 
 .slideDown {
@@ -542,6 +543,11 @@ input[type=text] {
   margin-top: 10px !important;
 }
 
+hr {
+  margin: 0 -30px;
+  width: calc(100% + 80px);
+}
+
 container {
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   height: 100%;
@@ -610,7 +616,7 @@ input.calc0 {
 }
 
 .sixty {
-  width: 800px;
+  width: 100%;
 }
 
 .checkout {

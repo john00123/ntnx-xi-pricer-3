@@ -4,39 +4,61 @@ let price = 100000
 
 //title data
 let j = ['',
-'Cloud Cost Percentage','Billing Period','Monthly Cost','Annual Cost','']
+'Protected VMs','Network','Floating IPs',
+
+'Live VMs 24x7','Test Failover per quarter','Mission Critical VMs','']
 
 //table data
 const data = [
   {
-    name:'Monthly Plan',
-    description:'Most flexible deal',
-    perc: 0.0475,
-    period:'Monthly',
-    month: 1,
-    year: 1,
+    name:'Basic',
+    description:'Small Enviroment',
+    a: 30,
+    b: 'VPN',
+    c: 4,
+
+    d: '-',
+    e: '-',
+    f: '-',
+
   },
   {
-    name:'Annual Commitment',
-    description:'Predictable billing',
-    perc: 0.0425,
-    period:'Monthly',
-    month: 1,
-    year: 1
+    name:'Growth',
+    description:'Medium Enviroment',
+    a: 50,
+    b: 'VPN',
+    c: 4,
+
+    d: 2,
+    e: 1 ,
+    f: '-',
+
   },
   {
-    name:'Single Payment',
-    description:'Most Popular',
-    perc: 0.0375,
-    period:'Annual',
-    month: 0,
-    year: 1
-  }
+    name:'Enterprise',
+    description:'Large Enviroment',
+    a: 200,
+    b: 'Direct Connect',
+    c:  10,
+
+    d: 10,
+    e: 1 ,
+    f: 10,
+  },
 ]
 
 //create table container
+
 $('container').append(`
   <div class="table-holder" card fw>
+    <div class='block-one' vss>
+      <h2>Welcome to Pricer</h2>
+      <p alt>
+        Select one of options below to confifure base on your enviroment. <br>You'll be able to customize it on the Next Step.
+      </p>
+    </div>
+    <hr><br><br>
+    <br>
     <table cellspacing="0"></table>
   </div>`)
 
@@ -46,18 +68,14 @@ $('table').append(`
     ${data.map(v =>`<th>${v.name}<br>
      <span alt>${v.description}</span></th>`)}
   </tr>
-  <tr> ${data.map(v =>`<td>${v.perc*100}%</td>`)} </tr>
-  <tr> ${data.map(v =>`<td>${v.period  } </td>`)} </tr>
+  <tr> ${data.map(v =>`<td>${v.a    }</td>`)} </tr>
+  <tr> ${data.map(v =>`<td>${v.b  } </td>`)} </tr>
+  <tr> ${data.map(v =>`<td>${v.c    }</td>`)} </tr>
+  <tr> ${data.map(v =>`<td>${v.d  } </td>`)} </tr>
+  <tr> ${data.map(v =>`<td>${v.e    }</td>`)} </tr>
+  <tr> ${data.map(v =>`<td>${v.f  } </td>`)} </tr>
 
-  <tr> ${data.map(v => v.period !== 'Annual' ?
-      `<td class='calc'>$${price * v.perc}.00 </td>` :
-      `<td fade> - </td>`)}
-  </tr>
-
-  <tr> ${data.map(v =>`<td class='calc2'>$
-       ${price * v.perc*12}.00</td>`)}
-  </tr>
-  <tr> ${data.map(v =>`<td><button primary fw> Select</button></td>`)}</tr>
+  <tr> ${data.map(v =>`<td><button primary fw> Configure</button></td>`)}</tr>
   `);
 
 //add first colum titles
@@ -83,7 +101,7 @@ const info =[
   }
 ]
 
-$('container').append(`<div class='company-info' card fw></div>`);
+// $('container').append(`<div class='company-info' card fw></div>`);
 
 
 //Forms
@@ -118,38 +136,22 @@ $('.company-info').prepend(
 
 let review =[
   {
-  name:'Payment Plan',
-  description:'Single Payment Annual Plan',
-  action:'<button secondary>Edit</button>'
+  name:'Prism Data Import',
+  description:'Select CSV from prism with VM, Virtual VCPU count and Memory Capacity (GiB)',
+  action:'<button secondary>Select</button>'
   },
 
   {
-  name:'Company Details',
-  description:'Nutanix <br>1740 Technology Dr #150, San Jose, CA 95110',
-  action:'<button secondary>Edit</button>'
+  name:'Previous Estimation',
+  description:'Select CSV downloaded from a prior estimation',
+  action:'<button secondary>Select</button>'
   },
 
   {
-  name:'Payment Method',
-  description:'Master Card <br> Ending in 3498',
-  action:'<button secondary>Edit</button>'
+  name:'Custom Estimations',
+  description:'Start from a blank configuration page',
+  action:'<button secondary>Select</button>'
   },
-  {
-  name:'Automatic Renewal',
-  description:'Your plan will automatically renew on 12 December 2020',
-  action:'<button secondary>Off</button>'
-  },
-  {
-  name:'Tax Documentation',
-  description:'No document has been uploaded',
-  action:'<button secondary>Upload</button>'
-  },
-  {
-  name:'Deal Registration Number',
-  description:'No partner associated',
-  action:'<input secondary></input>'
-  },
-
 ]
 
 /////////////////////////////////////////////
@@ -165,8 +167,8 @@ $('container').append(`<div class='checkout-holder' fw hsd></div>`)
 
 $('.checkout-holder').append(`
   <div card class='block-one sixty' vss>
-    <h2 fw> Review and Confirm </h2>
-    <p alt> Beam subscriptions are based on how much you spend on the cloud.<br> Provide an estimate of your month cloud expenses & pick a payment plan to continue</p>
+    <h2 fw> Other configuration </h2>
+    <p alt> Choose another method to create an estimation </p>
   </div>
 `)
 
@@ -182,38 +184,38 @@ $('.sixty').append(review.map(value => `
 )
 
 
-$('container').append(`
-    <div card fw hcd><br>
-      <img height=240 style='padding:0 50px' src='img/complete2.svg'><br><br>
-      <div fw style='margin-left:40px'>
-        <h2 fw>Dear {User}, congratulations</h2>
-        <p alt > We would like to thank you for registering your {Service} account.<br>We have sent you an activation email. <a>Resend email</a><br><br>
-
-        After activating your account, you will be able to access {service}'s' platform, and all our support and community services. <br>Go {back} to your <a>Account Page.</a></p>
-        <br><br>
-        <button primary> Go to {Service}</button>
-      </div>
-    </div>
-  `
-)
+// $('container').append(`
+//     <div card fw hcd><br>
+//       <img height=240 style='padding:0 50px' src='img/complete2.svg'><br><br>
+//       <div fw style='margin-left:40px'>
+//         <h2 fw>Dear {User}, congratulations</h2>
+//         <p alt > We would like to thank you for registering your {Service} account.<br>We have sent you an activation email. <a>Resend email</a><br><br>
+//
+//         After activating your account, you will be able to access {service}'s' platform, and all our support and community services. <br>Go {back} to your <a>Account Page.</a></p>
+//         <br><br>
+//         <button primary> Go to {Service}</button>
+//       </div>
+//     </div>
+//   `
+// )
 
 //confirmation purple  box
 
-$('.checkout-holder').append(`
-  <div card class='checkout'fw>
-    <h2 fw>Order Summary</h2>
-    <div hcd>
-      ${summary.map(value=>`<h3>${value}</h3>`).join('')}
-    </div>
-    <div hcd>
-      ${summary2.map(value=>`<h3>${value}</h3>`).join('')}
-    </div>
-    <div hcd>
-      ${summary3.map(value=>`<h3>${value}</h3>`).join('')}
-    </div>
-    <br>
-  </div>
-`)
+// $('.checkout-holder').append(`
+//   <div card class='checkout'fw>
+//     <h2 fw>Order Summary</h2>
+//     <div hcd>
+//       ${summary.map(value=>`<h3>${value}</h3>`).join('')}
+//     </div>
+//     <div hcd>
+//       ${summary2.map(value=>`<h3>${value}</h3>`).join('')}
+//     </div>
+//     <div hcd>
+//       ${summary3.map(value=>`<h3>${value}</h3>`).join('')}
+//     </div>
+//     <br>
+//   </div>
+// `)
 
 $('.checkout').append(`
   <div class='confirmation'>

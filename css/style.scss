@@ -70,6 +70,10 @@ input[type=text]{
   margin-top: 10px!important;
 } //label spacing
 
+hr{
+  margin: 0 -30px;
+  width: calc(100% + 80px);
+}
 
 
 //main container
@@ -131,7 +135,7 @@ input.calc0{
   margin-bottom: 10px;
 }
 
-.sixty{ width: 800px} //2/3 width for checkout
+.sixty{ width: 100%} //2/3 width for checkout
 
 
 //checkout block

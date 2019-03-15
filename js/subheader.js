@@ -14,8 +14,7 @@ const backArrow = `
 //render header
 $('.subheader').append(`
   <div class='back-section' hcs>
-    ${backArrow} <h2 class='page-subtitle' hc >Beam</h2>
-    <h3 alt> Signup </h3>
+    ${backArrow} <h2  class='page-subtitle' hc >New Estimation</h2>
   </div>
   <div class='steps' hcs>
     <h3 class='completed' alt ><span hc fade>1</span> Plan Selection</h3>

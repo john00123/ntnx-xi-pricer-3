@@ -17,6 +17,6 @@ const arrow =`
 
 //render header
 $('header').append(`
-  <div hcd> ${nutanixLogo} <h3 class='page-title'>Billing</h3> </div>
+  <div hcd> ${nutanixLogo} <h3 class='page-title'>Xi Pricer</h3> </div>
   <div class='user-title' hcd> <h3>Account Owner</h3> ${arrow} </div>
 `);
